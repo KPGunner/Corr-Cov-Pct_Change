@@ -4,8 +4,6 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import csv
 
-##THIS IS VERY MUCH A WORK IN PROGRESS. PLEASE FORGIVE ME##
-
 #GFC Peak to trough dates#
 ##start = dt.datetime(2007, 10, 9)
 ##end = dt.datetime(2009, 3, 9)
@@ -31,6 +29,7 @@ price = df['Adj Close'] #Use 'Adj Close' to account for dividends and splits.#
 #price= df['Close'] #Use just 'Close' when calculating inside periods not going to present#
 
 dev = price.std()
+var = price.var()
 
 returns = price.pct_change()
 ret = price.rolling(252).mean() #Annual rolling percent change#
@@ -45,7 +44,7 @@ pct = df1.pct_change()*100
 #pct.to_csv('da.csv')
 
 df2 = df1.iloc[[0, -1]] = df1.iloc[[-1, 0]]
-print(df2)
+#print(df2)
 change = df2.pct_change()*100
 #change.to_csv('Pct.csv')
 
@@ -87,6 +86,7 @@ x = returns.cov()
 ##plt.show()
 
 print ('Standard Deviation\n',(dev))
+print ('Variance\n', (var))
 print ('Covariance\n', (x))
 print ('Correlation\n', (z))
 #print (pct)
