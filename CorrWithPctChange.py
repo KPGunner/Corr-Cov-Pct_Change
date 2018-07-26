@@ -4,6 +4,8 @@ import datetime as dt
 import matplotlib.pyplot as plt
 import csv
 
+###Since Yahoo pulled their API the DataReader will not longer work. Can still work with a .csv###
+
 #GFC Peak to trough dates#
 ##start = dt.datetime(2007, 10, 9)
 ##end = dt.datetime(2009, 3, 9)
